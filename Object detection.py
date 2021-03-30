@@ -1,4 +1,5 @@
 import cv2
+from gpiozero import LED
 
 ################################################################
 path = 'venv/haarcascade/cascade.xml'  # PATH OF THE CASCADE
@@ -9,7 +10,7 @@ frameHeight = 480  # DISPLAY HEIGHT
 color = (255, 0, 255)
 #################################################################
 
-
+led = LED(17)
 cap = cv2.VideoCapture(cameraNo)
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
@@ -49,6 +50,9 @@ while True:
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
             cv2.putText(img, objectName, (x, y - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, color, 2)
             roi_color = img[y:y + h, x:x + w]
+            led.on()
+        else:
+            led.off()
 
     cv2.imshow("Result", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
