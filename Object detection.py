@@ -2,7 +2,7 @@ import cv2
 from gpiozero import LED
 
 ################################################################
-path = 'venv/haarcascade/cascade.xml'  # PATH OF THE CASCADE
+path = 'cascade.xml'  # PATH OF THE CASCADE
 cameraNo = 0  # CAMERA NUMBER
 objectName = 'DingDing'  # OBJECT NAME TO DISPLAY
 frameWidth = 640  # DISPLAY WIDTH
